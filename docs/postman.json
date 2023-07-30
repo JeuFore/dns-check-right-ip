@@ -1,0 +1,194 @@
+{
+	"info": {
+		"_postman_id": "a544c335-c05f-4e4e-9764-414b0cb09bdf",
+		"name": "dns-check-right-ip",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2749629"
+	},
+	"item": [
+		{
+			"name": "/healthz",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/healthz",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"healthz"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}?dns=example.com&ip=93.184.216.34&prefer=https",
+					"host": [
+						"{{URL}}"
+					],
+					"query": [
+						{
+							"key": "dns",
+							"value": "example.com"
+						},
+						{
+							"key": "ip",
+							"value": "93.184.216.34"
+						},
+						{
+							"key": "prefer",
+							"value": "https",
+							"description": "OPTIONAL (https,http)"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "with success response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}?dns=example.com&ip=93.184.216.34&prefer=https",
+							"host": [
+								"{{URL}}"
+							],
+							"query": [
+								{
+									"key": "dns",
+									"value": "example.com"
+								},
+								{
+									"key": "ip",
+									"value": "93.184.216.34"
+								},
+								{
+									"key": "prefer",
+									"value": "https",
+									"description": "OPTIONAL (https,http)"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "84"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 30 Jul 2023 19:56:30 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"dns\": \"example.com\",\n    \"ip\": \"93.184.216.34\",\n    \"prefer\": \"https\",\n    \"status\": \"OK\",\n    \"code\": 200\n}"
+				},
+				{
+					"name": "with error response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}?dns=example.com&ip=93.184.216.31&prefer=https",
+							"host": [
+								"{{URL}}"
+							],
+							"query": [
+								{
+									"key": "dns",
+									"value": "example.com"
+								},
+								{
+									"key": "ip",
+									"value": "93.184.216.31"
+								},
+								{
+									"key": "prefer",
+									"value": "https",
+									"description": "OPTIONAL (https,http)"
+								}
+							]
+						}
+					},
+					"status": "Bad Gateway",
+					"code": 502,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "63"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 30 Jul 2023 19:56:52 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Bad Gateway\",\n    \"message\": \"Ip not corresponding to dns\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}

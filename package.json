@@ -1,0 +1,22 @@
+{
+  "name": "dns-check-right-ip",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "JeuFore",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/router": "^12.0.0",
+    "ip": "^1.1.8",
+    "koa": "^2.14.2",
+    "koa-logger": "^3.2.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.7",
+    "@commitlint/config-conventional": "^17.6.7"
+  }
+}
