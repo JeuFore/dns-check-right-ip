@@ -16,7 +16,7 @@
     "koa-logger": "^3.2.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.7.2",
+    "@commitlint/cli": "^18.2.0",
     "@commitlint/config-conventional": "^17.7.0"
   }
 }
